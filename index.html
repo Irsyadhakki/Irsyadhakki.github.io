@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FOODLS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar Kiri -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                </ul>
+                <!-- Navbar Kanan -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+
+
+
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Profile</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal untuk Login/Register -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login/Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda belum login, silakan login atau register.</p>
+                    <!-- Tombol Login dan Register -->
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='register.html'">Login</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='register.html'">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal untuk Profile (Setelah Login) -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Informasi Profile (Setelah Login) -->
+                    <p><strong>Nama:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john.doe@example.com</p>
+                    <p><strong>Alamat:</strong> 1234 Elm Street, City, Country</p>
+                    <button type="button" class="btn btn-danger" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Settings -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Pengaturan dapat ditambahkan di sini -->
+                    <p>Pengaturan pengguna akan ditampilkan di sini.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <section class="hero d-flex align-items-center" style="background-image: url('images/Designer\ \(11\).jpeg');">
+        <div class="hero-overlay"></div>
+        <div class="container text-center">
+            <h1 class="display-4 text-custom"><strong>Welcome to FOODLS</strong></h1>
+            <p class="lead text-white">Selamat datang di FOODLS! Kami adalah tempat terbaik untuk menemukan makanan dan minuman lezat yang akan memanjakan lidah Anda. Temukan beragam pilihan menu yang dapat memenuhi selera Anda, dari hidangan utama yang menggugah selera hingga
+                camilan yang menggiurkan.</p>
+            <a href="register.html" id="btnBelanja" class="btn btn-primary btn-lg btn-custom">Mulai Belanja</a>
+        </div>
+    </section>
+
+
+
+
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Menu </h2>
+            <div class="row">
+                <!-- Card Menu 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (4).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Burger Spesial</h5>
+                            <p class="card-text">Rp 35.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <!-- Cart Icon -->
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal1">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <!-- Location Icon -->
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <!-- Like Icon -->
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Menu 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (2).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza Deluxe</h5>
+                            <p class="card-text">Rp 50.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal2">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Menu 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (7).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Salad Buah</h5>
+                            <p class="card-text">Rp 25.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal3">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Menu 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (5).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Burger </h5>
+                            <p class="card-text">Rp 30.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <!-- Cart Icon -->
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal1">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <!-- Location Icon -->
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <!-- Like Icon -->
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Menu 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (3).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza </h5>
+                            <p class="card-text">Rp 40.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal2">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Menu 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="images/Designer (8).jpeg" class="card-img-top" alt="Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Salad Buah Spesial</h5>
+                            <p class="card-text">Rp 30.000</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="icons d-flex">
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#cartModal3">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 me-2" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                    <button class="btn btn-link p-0 like-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <span class="like-count">0 Likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Keranjang Belanja -->
+
+    <!-- Modal Cart 1 untuk Burger Spesial -->
+    <div class="modal fade" id="cartModal1" tabindex="-1" aria-labelledby="cartModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel1">Burger Spesial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Burger dengan daging sapi, keju, tomat, dan saus spesial.</p>
+                    <p>Harga: Rp 35.000</p>
+
+                    <!-- Pilihan Ukuran -->
+                    <label for="burgerSize" class="form-label">Pilih Ukuran:</label>
+                    <select id="burgerSize" class="form-select">
+                    <option value="small">Kecil</option>
+                    <option value="medium" selected>Sedang</option>
+                    <option value="large">Besar</option>
+                </select>
+
+                    <!-- Pilihan Jumlah -->
+                    <label for="burgerQuantity" class="form-label mt-3">Jumlah:</label>
+                    <input type="number" id="burgerQuantity" class="form-control" value="1" min="1" max="10">
+
+                    <!-- Komentar -->
+                    <hr>
+                    <label for="comment1" class="form-label mt-3">Tulis Komentar:</label>
+                    <textarea id="comment1" class="form-control" rows="3" placeholder="Tulis komentar Anda di sini..."></textarea>
+                    <button type="button" class="btn btn-secondary mt-2" onclick="addComment(1)">Kirim Komentar</button>
+
+                    <!-- Area Menampilkan Komentar -->
+                    <div id="commentsSection1" class="mt-4">
+                        <h6>Komentar:</h6>
+                        <ul id="commentList1" class="list-unstyled"></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="addToCart('Burger Spesial', 35000, parseInt(document.getElementById('burgerQuantity').value))">Beli</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cart 2 untuk Pizza Deluxe -->
+    <div class="modal fade" id="cartModal2" tabindex="-1" aria-labelledby="cartModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel2">Pizza Deluxe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Pizza dengan topping deluxe dan saus keju spesial.</p>
+                    <p>Harga: Rp 50.000</p>
+
+                    <!-- Pilihan Ukuran -->
+                    <label for="pizzaSize" class="form-label">Pilih Ukuran:</label>
+                    <select id="pizzaSize" class="form-select">
+                    <option value="small">Kecil</option>
+                    <option value="medium" selected>Sedang</option>
+                    <option value="large">Besar</option>
+                </select>
+
+                    <!-- Pilihan Jumlah -->
+                    <label for="pizzaQuantity" class="form-label mt-3">Jumlah:</label>
+                    <input type="number" id="pizzaQuantity" class="form-control" value="1" min="1" max="10">
+
+                    <!-- Komentar -->
+                    <hr>
+                    <label for="comment2" class="form-label mt-3">Tulis Komentar:</label>
+                    <textarea id="comment2" class="form-control" rows="3" placeholder="Tulis komentar Anda di sini..."></textarea>
+                    <button type="button" class="btn btn-secondary mt-2" onclick="addComment(2)">Kirim Komentar</button>
+
+                    <!-- Area Menampilkan Komentar -->
+                    <div id="commentsSection2" class="mt-4">
+                        <h6>Komentar:</h6>
+                        <ul id="commentList2" class="list-unstyled"></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="addToCart('Pizza Deluxe', 50000, parseInt(document.getElementById('pizzaQuantity').value))">Beli</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cart 3 untuk Salad Buah -->
+    <div class="modal fade" id="cartModal3" tabindex="-1" aria-labelledby="cartModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel3">Salad Buah</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Salad segar dengan berbagai buah-buahan pilihan.</p>
+                    <p>Harga: Rp 25.000</p>
+
+                    <!-- Pilihan Ukuran -->
+                    <label for="saladSize" class="form-label">Pilih Ukuran:</label>
+                    <select id="saladSize" class="form-select">
+                    <option value="small">Kecil</option>
+                    <option value="medium" selected>Sedang</option>
+                    <option value="large">Besar</option>
+                </select>
+
+                    <!-- Pilihan Jumlah -->
+                    <label for="saladQuantity" class="form-label mt-3">Jumlah:</label>
+                    <input type="number" id="saladQuantity" class="form-control" value="1" min="1" max="10">
+
+                    <!-- Komentar -->
+                    <hr>
+                    <label for="comment3" class="form-label mt-3">Tulis Komentar:</label>
+                    <textarea id="comment3" class="form-control" rows="3" placeholder="Tulis komentar Anda di sini..."></textarea>
+                    <button type="button" class="btn btn-secondary mt-2" onclick="addComment(3)">Kirim Komentar</button>
+
+                    <!-- Area Menampilkan Komentar -->
+                    <div id="commentsSection3" class="mt-4">
+                        <h6>Komentar:</h6>
+                        <ul id="commentList3" class="list-unstyled"></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="addToCart('Salad Buah', 25000, parseInt(document.getElementById('saladQuantity').value))">Beli</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Lokasi -->
+    <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="locationModalLabel">Lokasi Kami</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Kami berlokasi di Jalan Makanan Enak No. 123, Jakarta.</p>
+                    <iframe src="https://maps.google.com/maps?q=Jalan%20Makanan%20Enak%20No.%20123,%20Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cart -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Keranjang Belanja</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Pesanan Anda:</h6>
+                    <div id="cartItems" class="list-group mb-3"></div>
+
+                    <h6>Informasi Pengiriman:</h6>
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Nama:</label>
+                        <input type="text" id="userName" class="form-control" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="userAddress" class="form-label">Alamat:</label>
+                        <input type="text" id="userAddress" class="form-control" placeholder="Masukkan alamat Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="userLocation" class="form-label">Lokasi:</label>
+                        <input type="text" id="userLocation" class="form-control" placeholder="Masukkan lokasi Anda">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" onclick="placeOrder()">Pesan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center mb-4">
+                    <h2>Kontak Kami</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae similique nobis quaerat neque dicta, magnam in illo iusto eligendi!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jalan Makanan Enak No. 123, Mataram</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <p>+6283112135166</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>contact@hakikiirsyad.com</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-md-8">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" id="name" placeholder="Nama " required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">kirim</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1979.6184144389485!2d116.10243451621474!3d-8.59489719718078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc4d857507563b%3A0x3f50c78ef1e20a47!2sCakranegara%2C%20Kec.%20Cakranegara%2C%20Kota%20Mataram%2C%20Nusa%20Tenggara%20Bar.!5e0!3m2!1sid!2sid!4v1697722456392!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center">
+                    <h2 class="about-title">Tentang Kami</h2>
+                    <p class="about-text mt-4">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus eros aliquet convallis ultricies. Morbi euismod, arcu eget cursus efficitur, eros quam egestas sem, id gravida enim turpis et risus.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <img src="images/Designer (1).jpeg" alt="About Image" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mt-4">Misi Kami</h4>
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada nisi ac enim sollicitudin, vitae faucibus ipsum pharetra.
+                    </p>
+                    <h4 class="mt-4">Visi Kami</h4>
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, lorem nec cursus fermentum, metus nunc tempor est, at scelerisque elit lacus ac magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section with Accordion -->
+    <section id="how-to-order" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center mb-5">
+                    <h2>Bagaimana Cara Memesan</h2>
+                    <p class="about-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod turpis id vestibulum gravida. Etiam condimentum interdum lacus, sit amet tristique ipsum placerat nec.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Accordion for How to Order Steps -->
+            <div class="accordion" id="orderAccordion">
+                <!-- Step 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Step 1: Register or Login
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#orderAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dapibus felis nec libero interdum, ac scelerisque erat vehicula. Aliquam erat volutpat.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Step 2: Pilih Menu
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#orderAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet nisl eu tortor tincidunt consequat. Duis quis ligula sit amet est bibendum condimentum.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Step 3: Tambahkan Pesanan
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#orderAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in magna sed erat finibus blandit. In bibendum elit eget purus suscipit, in elementum dolor tincidunt.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Step 4: Lakukan Pembayaran
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#orderAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac mauris at ex luctus egestas non a leo. Phasellus non lacus vel sem eleifend auctor.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Step 5: Konfirmasi Pesanan
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#orderAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit dui sed felis lobortis, et condimentum risus scelerisque. Suspendisse id dapibus libero.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-6 mb-3">
+                    <h5 class="mb-3">Tentang Kami</h5>
+                    <p>
+                        Kami adalah perusahaan yang berkomitmen memberikan layanan terbaik kepada pelanggan. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+
+                <!-- Social Media Links -->
+
+                <div class="col">
+                    <h5 class="mb-3">Ikuti Kami</h5>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com/murphysssssss/profilecard/?igsh=MmpndnlpZHQ3MTZp" class="text-light me-3"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i> Twitter</a>
+
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="row mt-4">
+                <div class="col">
+                    <p>&copy; 2024 FOODLS. Semua hak dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- Include Font Awesome CDN in the head of your HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

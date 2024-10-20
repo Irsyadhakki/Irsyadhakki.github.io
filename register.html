@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">pt>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FOODLS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar Kiri -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang Kami</a>
+                    </li>
+                </ul>
+                <!-- Navbar Kanan -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Profile</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal untuk Login/Register -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login/Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda belum login, silakan login atau register.</p>
+                    <!-- Tombol Login dan Register -->
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='page/register.html'">Login</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='page/register.html'">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal untuk Profile (Setelah Login) -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Informasi Profile (Setelah Login) -->
+                    <p><strong>Nama:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john.doe@example.com</p>
+                    <p><strong>Alamat:</strong> 1234 Elm Street, City, Country</p>
+                    <button type="button" class="btn btn-danger" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Settings -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Pengaturan dapat ditambahkan di sini -->
+                    <p>Pengaturan pengguna akan ditampilkan di sini.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero d-flex align-items-center" style="background-image: url('images/Designer\ \(12\).jpeg'); height: 100vh; position: relative;">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+        <div class="container">
+            <div class="row justify-content-center" style="position: relative; z-index: 2;">
+                <div class="col-md-6">
+                    <div class="card shadow login-card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center mb-4">Login</h4>
+                            <form>
+                                <div class="mb-3 row">
+                                    <label for="loginEmail" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="loginEmail" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="loginPassword" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content register-card">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom CSS untuk transparansi Login dan Register -->
+    <style>
+        .navbar {
+            background-color: #1d70ff !important;
+        }
+        
+        .navbar-brand {
+            color: #FFE1FF !important;
+        }
+        
+        .nav-link {
+            color: #96c5ff!important;
+        }
+        
+        .nav-link:hover {
+            color: #ffffff !important;
+        }
+        
+        .navbar .nav-item .nav-link svg {
+            width: 17px;
+            /* Sesuaikan ukuran jika perlu */
+            height: 17px;
+            /* Sesuaikan ukuran jika perlu */
+            fill: #96c5ff;
+            /* Warna biru untuk icon */
+            margin-left: 10px;
+            /* Memberikan jarak ke kiri */
+        }
+        
+        .nav-link svg :hover {
+            fill: #ffffff;
+        }
+        /* Styling untuk dropdown menu */
+        
+        .navbar .dropdown-toggle::after {
+            display: none;
+            /* Hilangkan ikon dropdown */
+        }
+        
+        .navbar .dropdown-menu {
+            background-color: #007bff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Hover effect untuk dropdown item */
+        
+        .navbar .dropdown-menu .dropdown-item:hover {
+            background-color: #96c5ff;
+            color: #ffffff;
+            /* Warna teks saat hover */
+        }
+        /* Menambah jarak di sekitar icon dan elemen dropdown */
+        
+        .navbar .nav-item .nav-link {
+            padding: 10px 15px;
+        }
+        
+        .login-card,
+        .register-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Transparan putih untuk login dan register */
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            /* Border transparan */
+            backdrop-filter: blur(10px);
+            color: white;
+            /* Efek blur pada background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow untuk tampilan lebih dinamis */
+        }
+        
+        .modal-content.register-card {
+            margin: 20vh auto;
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Transparan putih untuk login dan register */
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            /* Border transparan */
+            backdrop-filter: blur(10px);
+            /* Efek blur pada background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow untuk tampilan lebih dinamis */
+        }
+        
+        .hero {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-title {
+            color: #fff;
+            /* Warna teks pada title */
+        }
+        
+        .card-body label,
+        .card-body input {
+            color: #fff;
+            /* Warna teks pada form input */
+        }
+        /* Mengatur warna teks link di login */
+        
+        #registerModalLabel {
+            color: white;
+            /* Warna teks putih */
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            /* Ukuran font untuk judul modal */
+            font-weight: bold;
+            /* Membuat teks lebih tebal */
+        }
+        
+        .text-center a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .text-center p {
+            color: #ffffff;
+        }
+        
+        .text-center a:hover {
+            color: #003cff;
+            /* Warna hover pada link */
+        }
+        
+        .btn-success {
+            background-color: #005af4;
+            /* Warna hijau untuk tombol */
+            color: white;
+            border: none;
+            /* Warna teks putih */
+        }
+        
+        .btn-success:hover {
+            background-color: #8bb6ff;
+            border: none;
+            /* Warna hijau sedikit lebih gelap saat hover */
+        }
+    </style>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let isLoggedIn = false; // Simulasi status login, ubah sesuai dengan kondisi sebenarnya
+
+            // Jika Profile di klik
+            document.querySelector('.dropdown-item[data-bs-target="#loginModal"]').addEventListener('click', function(event) {
+                if (isLoggedIn) {
+                    var profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                } else {
+                    var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                }
+            });
+
+            // Logout button
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                isLoggedIn = false;
+                alert("You have logged out.");
+                // Tambahkan logika logout di sini, seperti clear session atau redirect ke halaman login
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+</html>
